@@ -6,3 +6,50 @@
 - AGP : 8.6.1
 
 > Android Studio - Ladybug | 2024.1.3 Canary 2 에서 작성 되었습니다.
+
+### Dependency Diagram
+
+```mermaid
+%%{
+  init: {
+    'theme': 'neutral'
+  }
+}%%
+
+graph LR
+  subgraph :core
+    :core:database["database"]
+    :core:model["model"]
+    :core:contract["contract"]
+    :core:data["data"]
+    :core:network["network"]
+    :core:designsystem["designsystem"]
+    :core:domain["domain"]
+    :core:logger["logger"]
+  end
+  subgraph :feature
+    :feature:main["main"]
+    :feature:home["home"]
+    :feature:favorite["favorite"]
+  end
+  :core:database --> :core:model
+  :app --> :core:contract
+  :app --> :presentation
+  :presentation --> :feature:main
+  :core:data --> :core:model
+  :core:data --> :core:database
+  :core:data --> :core:network
+  :feature:home --> :core:designsystem
+  :feature:home --> :core:model
+  :feature:home --> :core:domain
+  :core:network --> :core:contract
+  :core:network --> :core:model
+  :feature:favorite --> :core:designsystem
+  :feature:favorite --> :core:model
+  :feature:favorite --> :core:domain
+  :core:logger --> :core:contract
+  :core:domain --> :core:model
+  :core:domain --> :core:data
+  :feature:main --> :feature:home
+  :feature:main --> :feature:favorite
+```
