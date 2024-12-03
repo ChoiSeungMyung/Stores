@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="write_timeout">10</integer>
+    <integer name="read_timeout">10</integer>
+    <integer name="connect_timeout">10</integer>
+    <string name="base_url">https://4e066757-7caf-4018-a35e-a04edfa11d7b.mock.pstmn.io/</string>
+</resources>
