@@ -10,7 +10,6 @@ android.buildFeatures.resValues = false
 
 dependencies {
     implementation(projects.core.contract)
-    implementation(projects.core.model)
 
     implementation(platform(libs.okhttp.bom))
     implementation(libs.okhttp)

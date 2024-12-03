@@ -8,8 +8,6 @@ android.namespace = "io.knowk.example.core.database"
 android.buildFeatures.resValues = false
 
 dependencies {
-    implementation(projects.core.model)
-
     implementation(libs.androidx.room)
     implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)

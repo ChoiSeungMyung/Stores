@@ -18,10 +18,10 @@
 
 graph LR
   subgraph :core
-    :core:database["database"]
-    :core:model["model"]
     :core:contract["contract"]
     :core:data["data"]
+    :core:model["model"]
+    :core:database["database"]
     :core:network["network"]
     :core:designsystem["designsystem"]
     :core:domain["domain"]
@@ -32,7 +32,6 @@ graph LR
     :feature:home["home"]
     :feature:favorite["favorite"]
   end
-  :core:database --> :core:model
   :app --> :core:contract
   :app --> :presentation
   :presentation --> :feature:main
@@ -43,7 +42,6 @@ graph LR
   :feature:home --> :core:model
   :feature:home --> :core:domain
   :core:network --> :core:contract
-  :core:network --> :core:model
   :feature:favorite --> :core:designsystem
   :feature:favorite --> :core:model
   :feature:favorite --> :core:domain
