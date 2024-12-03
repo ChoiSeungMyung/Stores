@@ -12,8 +12,6 @@ android.buildFeatures.compose = true
 
 dependencies {
     implementation(libs.bundles.compose.lifecycle)
-    implementation(projects.core.model)
-    implementation(projects.core.domain)
     implementation(projects.feature.home)
     implementation(projects.feature.favorite)
 }

@@ -9,7 +9,7 @@ import io.knowk.example.feature.main.navigaion.MAIN_ROUTE
 import io.knowk.example.feature.main.navigaion.mainScreen
 
 @Composable
-fun PresentationNavHost(
+internal fun PresentationNavHost(
     modifier: Modifier = Modifier,
     startDestination: String = MAIN_ROUTE,
     navController: NavHostController = rememberNavController(),
