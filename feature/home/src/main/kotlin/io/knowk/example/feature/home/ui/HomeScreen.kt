@@ -47,7 +47,7 @@ private fun HomeScreen(
 ) {
     if (stores == null) return
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize(),
     ) {
         HeadLine(
@@ -59,7 +59,7 @@ private fun HomeScreen(
         LazyColumn(
             verticalArrangement = spacedBy(12.dp),
             contentPadding = PaddingValues(20.dp),
-            modifier = modifier
+            modifier = Modifier
                 .fillMaxSize(),
         ) {
             CardSection(

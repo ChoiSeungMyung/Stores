@@ -11,31 +11,21 @@ import io.knowk.example.core.network.response.StoreResponse
 import io.knowk.example.core.network.source.StoreRemoteSource
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.update
 
 class StoreRepositoryImpl @Inject constructor(
     private val remote: StoreRemoteSource,
     private val favoriteStoreLocal: FavoriteStoresLocalSource,
 ) : StoreRepository {
-    private val stores: MutableStateFlow<Stores?> = MutableStateFlow(null)
-
-    override suspend fun fetchStores(): Stores? {
-//        if (stores.value == null) {
+    override suspend fun fetchStores(): Stores {
         val response = remote
             .fetchStores()
         val list = response.list.map(StoreResponse::toModel)
 
-        stores.update {
-            Stores(
-                title = response.title,
-                list = list,
-            )
-        }
-//        }
-
-        return stores.value
+        return Stores(
+            title = response.title,
+            list = list,
+        )
     }
 
     override fun getAllFavoriteStore(): Flow<List<Store>> {
